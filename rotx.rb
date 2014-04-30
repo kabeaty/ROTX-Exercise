@@ -11,7 +11,7 @@ def rotx(x, string, encrypt=true)
       if item == item.downcase then alph_array = lowercase else alph_array = uppercase end
       alph_array.each_with_index do |letter, index2|
         if item == letter
-          index2 += x
+          if encrypt then index2 += x else index2 -= x end
           index2 -= 26 while index2 > 26
           new_letter = alph_array[index2]
           sol[index1] = new_letter
