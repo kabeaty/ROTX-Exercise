@@ -13,6 +13,7 @@ def rotx(x, string, encrypt=true)
         if letter1 == letter2
           if encrypt then index2 += x else index2 -= x end
           index2 -= 26 while index2 > 26
+          index2 += 26 while index2 < 0
           sol[index1] = alph_arr[index2]
         end
       end
