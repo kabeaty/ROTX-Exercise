@@ -4,8 +4,8 @@ require 'pry-debugger'
 def rotx(x, string, encrypt=true)
   new_string = string.split("")
   sol = new_string
-  uppercase = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split("")
-  lowercase = 'abcdefghijklmnopqrstuvwxyz'.split("")
+  uppercase = ('A'..'Z').to_a
+  lowercase = ('a'..'z').to_a
   new_string.each_with_index do |item, index1|
     if /[[:alpha:]]/.match(item)
       if item == item.downcase then alph_array = lowercase else alph_array = uppercase end
