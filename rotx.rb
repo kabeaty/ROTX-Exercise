@@ -1,6 +1,9 @@
 require 'rubygems'
 require 'pry-debugger'
 
+# This function takes in a rotational number and a string, and
+# returns the string rotated by that many letters.
+# It encrypts and decrypts based on parameter given.
 def rotx(x, string, encrypt=true)
   string_arr = string.chars
   string_arr.each_with_index do |letter, index|
