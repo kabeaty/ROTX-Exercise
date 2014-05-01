@@ -1,6 +1,5 @@
 require 'rubygems'
 require 'rspec'
-require 'pry-debugger'
 require_relative '../rotx.rb'
 
 describe "rotx" do

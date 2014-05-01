@@ -1,5 +1,4 @@
 require 'rubygems'
-require 'pry-debugger'
 
 # This function takes in a rotational number and a string, and
 # returns the string rotated by that many letters.
