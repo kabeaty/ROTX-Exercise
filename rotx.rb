@@ -3,21 +3,26 @@ require 'pry-debugger'
 
 def rotx(x, string, encrypt=true)
   string_arr = string.chars
-  uppercase = ('A'..'Z').to_a
-  lowercase = ('a'..'z').to_a
-  string_arr.each_with_index do |letter1, index1|
-    if /[[:alpha:]]/.match(letter1)
-      letter1 == letter1.downcase ? alph_arr = lowercase : alph_arr = uppercase
-      alph_arr.each_with_index do |letter2, index2|
-        if letter1 == letter2
-          encrypt ? index2 += x : index2 -= x
-          index2 -= 26 while index2 > 26
-          index2 += 26 while index2 < 0
-          string_arr[index1] = alph_arr[index2]
+  string_arr.each_with_index do |letter, index|
+    if /[[:alpha:]]/.match(letter)
+      letter == letter.downcase ? letter_case = true : letter_case = false
+      letter_ascii = letter.ord
+      encrypt ? letter_ascii += x : letter_ascii -= x
+      if letter_case
+        if letter_ascii > 122
+          letter_ascii = 97 + ((letter_ascii - 97) % 26)
+        else
+          letter_ascii = 122 - ((122 - letter_ascii) % 26)
+        end
+      else
+        if letter_ascii > 90
+          letter_ascii = 65 + ((letter_ascii - 65) % 26)
+        else
+          letter_ascii = 90 - ((90 - letter_ascii) % 26)
         end
       end
+      string_arr[index] = letter_ascii.chr
     end
   end
   string_arr.join
 end
-
